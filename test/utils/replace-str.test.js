@@ -7,10 +7,10 @@ describe('替换字符串', () => {
   test('替换双花括号 {{xxx}}', () => {
     expect(
       replaceStr('# Hello {{name}}, {{state}}', {
-        name: 'update-popup',
+        name: 'update-version-popup',
         state: 'working great!'
       })
-    ).toBe(`# Hello update-popup, working great!`)
+    ).toBe(`# Hello update-version-popup, working great!`)
   })
 
   test('跳过替换单花括号 {xxx}', () => {

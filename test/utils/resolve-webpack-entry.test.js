@@ -3,7 +3,7 @@
 const {resolveWebpackEntry, resolveApp} = require('../../utils')
 
 const options = {
-  NAME: 'femessage-update-popup',
+  NAME: 'update-version-popup',
   filePath: resolveApp('main.js')
 }
 

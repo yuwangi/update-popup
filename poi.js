@@ -1,6 +1,6 @@
 const UpdatePopup = require('.')
 
-const NAME = 'femessage-update-popup'
+const NAME = 'update-version-popup'
 
 exports.name = NAME
 

@@ -4,7 +4,8 @@ import {createToast} from 'vercel-toast'
 main()
 
 function main() {
-  if (process.env.NODE_ENV !== 'production') return
+  const isProduction='{{isProduction}}'
+  if (!isProduction) return
 
   // 当前应用版本
   const currentVersion = '{{currentVersion}}'

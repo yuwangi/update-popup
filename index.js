@@ -8,6 +8,7 @@
  *  publicPath?: string
  *  inject?: boolean
  *  envKey?: string
+ *  isProduction?: boolean
  *  versionFileName?: string
  *  auto?: boolean
  *  versionType?: string
@@ -28,7 +29,7 @@ const {
 /** @type {(filePath: PathLike) => string} */
 const readFile = filePath => fs.readFileSync(filePath, 'utf8')
 
-const NAME = 'femessage-update-popup'
+const NAME = 'update-version-popup'
 
 const VERSION_TYPES = {
   TIMESTAMP: 'timestamp'
@@ -42,6 +43,7 @@ class UpdatePopup {
         publicPath: '',
         inject: true, // 自动注入到 webpack.entry
         envKey: 'UPDATE_POPUP_VERSION',
+        isProduction:process.env.NODE_ENV === 'production',
         versionFileName: 'update_popup_version.txt',
         auto: false, // 是否自动生成 version
         versionType: VERSION_TYPES.TIMESTAMP // 自动生成的 version 的方式
@@ -51,7 +53,7 @@ class UpdatePopup {
 
     if (this.options.auto) {
       if (!VERSION_TYPES[this.options.versionType]) {
-        if (process.env.NODE_ENV === 'production') {
+        if (this.options.isProduction) {
           console.warn(
             `Unknown versionType: ${this.options.versionType}. Falling back to ${VERSION_TYPES.TIMESTAMP}`
           )
@@ -75,7 +77,7 @@ class UpdatePopup {
   /** @type {(compiler: import('webpack').Compiler) => void} */
   apply(compiler) {
     // common
-    if (process.env.NODE_ENV !== 'production') return
+    if (!this.options.isProduction) return
     // v4
     if (_get(compiler, 'options.mode') !== 'production') return
 
@@ -127,6 +129,7 @@ class UpdatePopup {
       replaceStr(content, {
         envKey: this.options.envKey,
         currentVersion: this.version,
+        isProduction: this.options.isProduction,
         ...extraReplacement
       })
     )

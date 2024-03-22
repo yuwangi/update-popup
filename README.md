@@ -1,10 +1,10 @@
 # update-popup
 
-[![Build Status](https://badgen.net/travis/FEMessage/update-popup/master)](https://travis-ci.com/FEMessage/update-popup)
-[![NPM Download](https://badgen.net/npm/dm/@femessage/update-popup)](https://www.npmjs.com/package/@femessage/update-popup)
-[![NPM Version](https://badge.fury.io/js/%40femessage%2Fupdate-popup.svg)](https://www.npmjs.com/package/@femessage/update-popup)
-[![NPM License](https://badgen.net/npm/license/@femessage/update-popup)](https://github.com/FEMessage/update-popup/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/FEMessage/update-popup/pulls)
+[![Build Status](https://badgen.net/travis/yuwangi/update-popup/master)](https://travis-ci.com/yuwangi/update-popup)
+[![NPM Download](https://badgen.net/npm/dm/update-version-popup)](https://www.npmjs.com/package/update-version-popup)
+[![NPM Version](https://badge.fury.io/js/%40yuwangi%2Fupdate-popup.svg)](https://www.npmjs.com/package/update-version-popup)
+[![NPM License](https://badgen.net/npm/license/update-version-popup)](https://github.com/yuwangi/update-popup/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yuwangi/update-popup/pulls)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
 ![](https://user-images.githubusercontent.com/53422750/88611099-eb654b00-d0ba-11ea-89b9-ca92afc1078c.gif)
@@ -29,7 +29,7 @@ Check if the current application is the latest version. If not, it reminds you t
 ## Install
 
 ```console
-yarn add @femessage/update-popup
+yarn add update-version-popup
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -56,7 +56,7 @@ Project configurations:
 // nuxt.config.js
 const config = {
   modules: [
-    ['@femessage/update-popup/nuxt', {auto: true}]
+    ['update-version-popup/nuxt', {auto: true}]
   ]
 }
 ```
@@ -67,13 +67,13 @@ const config = {
 // .umirc.ts
 const config = {
   chainWebpack: config => {
-    config.plugin('femessage-update-popup').use(require('@femessage/update-popup'), [{auto: true}])
+    config.plugin('yuwangi-update-popup').use(require('update-version-popup'), [{auto: true}])
   }
 }
 
 // and remember add import in your App.js
 // you may need to ignore IDE's warning
-import '@femessage/update-popup/app/main'
+import 'update-version-popup/app/main'
 ```
 
 
@@ -82,6 +82,15 @@ It's so easy.
 [⬆ Back to Top](#table-of-contents)
 
 ## Options
+
+### isProduction
+
+- Type: `boolean`
+- Default: process.env.NODE_ENV
+
+use to env
+
+[⬆ Back to Top](#table-of-contents)
 
 ### publicPath
 
@@ -121,7 +130,7 @@ The way of automatically generated version，values：
 - Default: `true`
 
 Does it need to be automatically added to the webpack entry file?
-If set `false` Need to manually `@femessage/update-popup/app/main` Inject it into your code.
+If set `false` Need to manually `update-version-popup/app/main` Inject it into your code.
 When to set this parameter, see [Notice.QianKun](#qiankun)。
 
 ### envKey
@@ -153,8 +162,8 @@ Adjust the project configuration file
 ```diff
 # nuxt.config.js
 const config = {
--  modules: ['@femessage/update-popup/nuxt']
-+  modules: [['@femessage/update-popup/nuxt'], { inject: false }]
+-  modules: ['update-version-popup/nuxt']
++  modules: [['update-version-popup/nuxt'], { inject: false }]
 }
 
 # vue.config.js or poi.config.js
@@ -170,7 +179,7 @@ const config = {
 Add an entry file in your **Sub-application** at last
 
 ```diff
-+ import '@femessage/update-popup/app/main'
++ import 'update-version-popup/app/main'
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -184,31 +193,7 @@ For those who are interested in contributing to this project, such as:
 - fix a bug
 - implement a new feature
 
-Please refer to our [contributing guide](https://github.com/FEMessage/.github/blob/master/CONTRIBUTING.md).
-
-[⬆ Back to Top](#table-of-contents)
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://evila.me/"><img src="https://avatars3.githubusercontent.com/u/19513289?v=4?s=100" width="100px;" alt=""/><br /><sub><b>EVILLT</b></sub></a><br /><a href="https://github.com/FEMessage/update-popup/commits?author=evillt" title="Code">💻</a> <a href="https://github.com/FEMessage/update-popup/commits?author=evillt" title="Tests">⚠️</a> <a href="#ideas-evillt" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/FEMessage/update-popup/commits?author=evillt" title="Documentation">📖</a> <a href="#maintenance-evillt" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://4ark.me"><img src="https://avatars0.githubusercontent.com/u/27952659?v=4?s=100" width="100px;" alt=""/><br /><sub><b>4Ark</b></sub></a><br /><a href="https://github.com/FEMessage/update-popup/commits?author=gd4Ark" title="Documentation">📖</a> <a href="#translation-gd4Ark" title="Translation">🌍</a> <a href="https://github.com/FEMessage/update-popup/commits?author=gd4Ark" title="Code">💻</a> <a href="https://github.com/FEMessage/update-popup/issues?q=author%3Agd4Ark" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://aa"><img src="https://avatars.githubusercontent.com/u/10540920?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ynwshy</b></sub></a><br /><a href="https://github.com/FEMessage/update-popup/issues?q=author%3Aynwshy" title="Bug reports">🐛</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Please refer to our [contributing guide](https://github.com/yuwangi/.github/blob/master/CONTRIBUTING.md).
 
 [⬆ Back to Top](#table-of-contents)
 
