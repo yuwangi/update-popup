@@ -1,12 +1,12 @@
 {
-  "name": "@femessage/update-popup",
-  "version": "1.0.1",
+  "name": "update-version-popup",
+  "version": "1.2.0",
   "description": "Display an update message at right bottom",
-  "author": "https://github.com/FEMessage",
+  "author": "https://github.com/yuwangi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FEMessage/update-popup.git"
+    "url": "https://github.com/yuwangi/update-popup.git"
   },
   "keywords": [
     "vue",
