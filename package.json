@@ -1,6 +1,6 @@
 {
   "name": "update-version-popup",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Display an update message at right bottom",
   "author": "https://github.com/yuwangi",
   "license": "MIT",
